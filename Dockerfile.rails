@@ -1,0 +1,18 @@
+# Usage
+# `$ docker build -t rails-toolbox -f Dockerfile.rails .`
+# Use this image to create a new Rails app.
+
+# Setup ruby
+FROM ruby:3.1.2 AS rails-toolbox
+
+# Default directory
+ENV INSTALL_PATH /opt/app
+RUN mkdir -p $INSTALL_PATH
+
+# Install gems
+RUN gem install rails
+#RUN chown -R user:user $INSTALL_PATH
+WORKDIR $INSTALL_PATH
+
+# Run the shell
+CMD ["/bin/sh"]
