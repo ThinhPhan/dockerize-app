@@ -1,4 +1,4 @@
-# Dockerfile.nginx
+# Dockerfile.nginx - WIP - Not test yet
 
 FROM nginx:latest
 COPY reverse-proxy.conf /etc/nginx/conf.d/reverse-proxy.conf

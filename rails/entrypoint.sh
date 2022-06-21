@@ -3,7 +3,7 @@ set -e
 
 # Các gem đã cài đặt đã được mount từ volume vào folder /bundle trong container sẽ không phải install nữa,
 # chỉ khi có thay đổi mới thực hiện install.
-bundle check || bundle install --binstubs="$BUNDLE_BIN"
+# bundle check || bundle install --binstubs="$BUNDLE_BIN"
 
 # Check xem đã có database chưa, nếu chưa sẽ tạo database và migrate database.
 # Check database is exist or not. If not exist, create database and migrate database.

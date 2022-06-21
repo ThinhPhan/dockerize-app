@@ -3,7 +3,7 @@
 # Use this image to create a new Rails app.
 
 # Setup ruby
-FROM ruby:3.1.2 AS rails-toolbox
+FROM ruby:3.1.1 AS rails-toolbox
 
 # Default directory
 ENV INSTALL_PATH /opt/app

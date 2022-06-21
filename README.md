@@ -1,12 +1,20 @@
-# Usage
+# Dockerize Guide
+
+- [Dockerize Guide](#dockerize-guide)
+  - [Usage for Rails App](#usage-for-rails-app)
+  - [Rails App](#rails-app)
+    - [Docker Compose](#docker-compose)
+    - [Configuring the Application to Work with PostgreSQL and Redis](#configuring-the-application-to-work-with-postgresql-and-redis)
+    - [Configuring the testing](#configuring-the-testing)
+## Usage for Rails App
 
 Steps
 
-1. Clone the project and adding dependencies
-2. Configuring DB
-3. Dockerize
-4. Defining services with Docker Compose
-5. Testing
+1. [Clone the project and adding dependencies]
+2. [Configuring DB](#configuring-the-application-to-work-with-postgresql-and-redis)
+3. [Dockerize]
+4. [Defining services with Docker Compose]
+5. [Testing](#configuring-the-testing)
 
 ## Rails App
 
@@ -24,7 +32,7 @@ docker run -it -v $PWD:/opt/app rails-toolbox rails new APP_NAME -c tailwind -d 
 
 
 # Setup Gemfile, config files,
-
+# Read below
 ```
 
 ### Docker Compose
@@ -85,5 +93,30 @@ To work with PostgreSQL and Redis in development, we will want to do the followi
 # end
 
 bundle install
-rails g rspec:install
+rails generate rspec:install
+# when we generate model, it will generate spec too
+# RSpec also provide its own spec file generators
+rails generate rspec:model user
+# List all RSpec generators
+rails g --help | grep rspec
+  # rspec:channel
+  # rspec:controller
+  # rspec:feature
+  # rspec:generator
+  # rspec:helper
+  # rspec:install
+  # rspec:integration
+  # rspec:job
+  # rspec:mailbox
+  # rspec:mailer
+  # rspec:model
+  # rspec:request
+  # rspec:scaffold
+  # rspec:system
+  # rspec:view
+
+# add rspec into /bin folder
+bundle binstub rspec-core
+rspec --init # Similar with initial step in LOC 96
+
 ```
